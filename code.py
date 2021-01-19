@@ -19,7 +19,7 @@ def isInt(v):
 Validates inputs and returns input
 input is a tuple of (size ,blocksize, permission)
 checks if size is int
-checks if free space to create file is present
+checks if free space is available to create file(space < 10kb )
 checks if blocksize is int
 """
 
