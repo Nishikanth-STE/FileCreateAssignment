@@ -5,29 +5,33 @@ import os
 import shutil
 import logging
 
-logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG)
+logging.basicConfig( filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.DEBUG )
 
 """
 checks if v is int
 """
-def isInt(v):
-	try:     i = int(v)
+def isInt( v ):
+	try:     i = int( v )
 	except:  return False
 	return True
 
 """
+
 Validates inputs and returns input
 input is a tuple of (size ,blocksize, permission)
 checks if size is int
 checks if free space is available to create file(space < 10kb )
 checks if blocksize is int
+
 """
 
 def Userinput():
 
 	size = input("enter size: ")
-	if(not isInt(size)):
+	if ( not isInt( size ) ):
 		logging.error( "Invalid File size" )
+	if ( int ( size ) < 0 ):
+		logging.INFO( "Invalid File size < 0" )
 		
 
 	cwd=os.getcwd()
@@ -38,8 +42,12 @@ def Userinput():
 	logging.debug( "File Size is Valid" )
 
 	block_size = input( "enter blocksize: " )
-	if( not isInt( block_size) ):
+	if ( not isInt( block_size) ):
 		logging.error( "Invalid BlockSize" )
+	
+	if( int( block_size ) <= 0 ):
+		logging.error( "Invalid BlockSize" )
+
 
  	#if( block_size > size):
 	#	logging.error( "bs cannot be more than file size" )
@@ -49,13 +57,13 @@ def Userinput():
 
 	permission = input( "enter permission: " )
 
-	if(not isInt(permission)):
+	if( not isInt( permission ) ):
 		logging.error("Invalid permission")
 
 	
 	logging.info( "Valid Inputs" )
 
-	return ( int(size), int(block_size), permission )
+	return ( int( size ), int( block_size ), permission )
 
 
 """
@@ -63,7 +71,7 @@ returns ceil of n
 """
 def ceil( n ):
 
-	res = int(n)
+	res = int( n )
 	return res if res == n or n < 0 else res + 1
 
 """

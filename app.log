@@ -1,5 +1,4 @@
 root - DEBUG - File Size is Valid
-root - ERROR - bs cannot be more than file size
 root - DEBUG - BlockSize is Valid
 root - INFO - Valid Inputs
 root - INFO - 	File Created
