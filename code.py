@@ -1,4 +1,4 @@
-from __future__ import division
+from __future__ import division #for python2
 
 import subprocess
 import os
@@ -98,14 +98,14 @@ def createFile(input):
 	if(returnValue_dd.returncode != 0 ):
 		logging.error("File Not Created")
 	
-	logging.info("	File Created")
+	logging.info( "File Created" )
 
-	returnValue_chmod=subprocess.run(['chmod' , str(permissions) ,  outputfile_name  ])
+	returnValue_chmod=subprocess.run(['chmod' , str(permissions) ,  outputfile_name  ]) 
 	if(returnValue_chmod.returncode != 0 ):
-		logging.error("permissions not set")
+		logging.error( "permissions not set" )
 	
-	logging.info("Permissions set")
-	logging.info("Done")
+	logging.info( "Permissions set" )
+	logging.info( "Done" )
 
 
 
